@@ -1,0 +1,70 @@
+<section class="pt-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h4 class="text-center font-weight-bold"> Find your COVID-safe spot </h4>
+        <p class="text-center">by name, address or description</p>
+
+        <!-- MAPBOX -->
+         <div id="map"
+         style="width: 100%; height: 600px;"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+         </div>
+
+        <!-- SEARCH FORM -->
+
+        <div class="container mt-5 text-center">
+          <%= form_tag places_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control flex-grow-1 mb-2",
+              placeholder: "Search by name or description"
+            %>
+
+            <%= select_tag :tags,
+              options_for_select(ActsAsTaggableOn::Tag.all.collect{ |tag| [tag.name] }, params[:tags]).html_safe,
+              multiple: true,
+              class: "select2 form-control flex-grow-1 mb-2"
+            %>
+
+            <%= submit_tag "Search", class: "btn btn-primary center" %>
+          <% end %>
+        </div>
+
+        <!-- SEARCH RESULTS -->
+
+        <div class="container mt-5">
+          <p><strong><%= @places.count %> <%= @places.count == 1 ? "result" : "results" %> found</strong></p>
+          <ul style="list-style-type:none">
+            <% @places.each do |place| %>
+
+
+                   
+
+              <li> <strong> <%= link_to place.name, place %> </strong> 
+                 <span data-place-id="<%= place.id %>" class="place-heart-icon">
+                    <%= render 'places/heart', place: place %>
+                  </span>
+              </li>
+              <li><%= place.description %></li>
+              <li><strong>Address: </strong><%= place.address %></li>
+              <p>
+              <strong>Tags: </strong>
+                <% place.tag_list.each do |tag| %>
+                <span class="badge badge-pill badge-info"><%= link_to tag, tagged_path(tag: tag) %></span>
+                <% end %>
+              </p>
+              <ul>
+                <% place.reviews.each_with_index do |review, index| %>
+                <li> <strong> Review no.<%= index + 1 %>:</strong> </li>
+                Tip: <%= review.tip %>. by <%= review.user.first_name %>
+                <% end %>
+              </ul>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

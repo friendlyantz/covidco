@@ -1,0 +1,25 @@
+<!-- WELCOME -->
+<%= render 'pages/home/header' %>
+
+<!-- WELCOME -->
+<%= render 'pages/home/search' %>
+
+<% if user_signed_in? %>
+    <%= link_to "Go to my location - based on SEARCH ", location_path(current_user.location) %>
+    <%= link_to "Go to my location - based on SEARCH ", search_locations_path %>
+<% end %>
+<!-- CATEGORIES -->
+<%= render 'pages/home/categories' %>
+
+
+<!-- ACTVITIES -->
+<%= render 'pages/home/activities' %>
+
+<!-- FEATURED -->
+<%= render 'pages/home/featured' %>
+
+<!-- RESTAURANTS -->
+<%= render 'pages/home/restaurants' %>
+
+<!-- PARKS -->
+<%= render 'pages/home/parks' %>

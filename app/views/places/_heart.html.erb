@@ -1,0 +1,9 @@
+<% if current_user && place.bookmarks.where(user: current_user).present? %>
+  <%= link_to  bookmark_path(place.bookmarks.where(user: current_user).first), method: :delete, remote: true do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to place_bookmarks_path(place), method: :post, remote: true do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>

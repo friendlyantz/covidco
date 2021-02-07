@@ -1,0 +1,47 @@
+
+<section class="py-6 border-bottom">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4">
+        <div class="pr-5">
+          <h5 class="">About <%= @place.name %></h5>
+          <p class="text-muted"><%= @place.description %></p>
+        </div>
+      </div>
+      <div class="col-lg-8 text-right">
+        <% @place.tag_list.each do |tag| %>
+        <span class="btn btn-xs rounded-pill btn-outline-secondary">
+          <span class="h6"><%= tag %></span>
+        </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="row gx-4">
+          <div class="col-5 align-self-stretch">
+            <div class="py-13 img-fluid rounded shadow-lg bg-size-cover" style="background: url(<%= cl_image_path @place.photos.first.key %>);">
+            </div>
+          </div>
+          <div class="col-5 align-self-stretch">
+            <div class="py-13 img-fluid rounded shadow-lg bg-size-cover" style="background: url(<%= cl_image_path @place.photos.second.key %>);">
+            </div>
+          </div>
+          <div class="col-2 align-self-stretch">
+            <div class="py-8 img-fluid rounded shadow-lg bg-size-cover mb-4" style="background: url(<%= cl_image_path @place.photos.third.key %>);">
+            </div>
+            <div class="py-8 img-fluid rounded shadow-lg bg-size-cover mt-4" style="background: url(<%= cl_image_path @place.photos.fourth.key %>);">
+            </div>
+            <div class="py-8 img-fluid rounded shadow-lg bg-size-cover mt-4" style="background: url(<%= cl_image_path @place.photos.fifth.key %>);">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- / .row -->
+  </div>
+</section>
+
+  <%# LOOP THROUGH ALL PHOTOS %>
+  <%# @place.photos.each do |photo| %>
+    <%#= cl_image_tag photo.key, class: "img-fluid rounded shadow-lg" %>
+  <%# end %>

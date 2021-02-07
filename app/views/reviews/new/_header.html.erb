@@ -1,0 +1,25 @@
+<div class="pt-20">
+  <div class="d-flex card-style-1">
+    <div class="mr-4">
+      <%= cl_image_tag @place.photos.first.key, style: "height: 100px;", class: "img-fluid rounded"  %>
+    </div>
+    <div class="">
+      <h3 class="mb-2">
+        <%= @place.name %>
+        <%= link_to place_bookmarks_path(@place), method: :create  do %>
+          <span class="h6 font-weight-normal"><i class="fa-2x far fa-heart text-black ml-1 mr-2"></i></span>
+        <% end %>
+      </h3>
+      <h6>
+        <%= render 'locations/show/star_rating' %>
+        <span class="ml-1">116 Reviews</span> |
+        <span class="mx-1">$$$</span> |
+        <span class="mx-1">American Restaurant</span>
+      </h6>
+      <h6>
+        <span class="mr-2"><i class="fas fa-map-marker-alt mr-1"></i> <%= @place.address %> </span>
+      </h6>
+    </div>
+  </div>
+</div>
+<hr/>

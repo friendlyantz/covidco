@@ -1,0 +1,20 @@
+<section>
+  <div class="container-fluid px-md-0">
+    <div class="row no-guttters justify-content-between gx-0 mx-md-0">
+      <div class="col-12 col-md-5 position-md-sticky d-flex align-items-center vh-md-100 mx-auto px-6" style="top: 0; overflow: hidden;">
+      <aside class="flex-grow-1 py-8 py-md-10">
+        <%= cl_image_tag @place.photos.first.key, class: "w-100 h-auto rounded my-3" %>
+        <%= cl_image_tag @place.photos.second.key, class: "w-100 h-auto rounded my-3" %>
+        <%= cl_image_tag @place.photos.third.key, class: "w-100 h-auto rounded my-3" %>
+        <%= cl_image_tag @place.photos.fourth.key, class: "w-100 h-auto rounded my-3" %>
+        <%= cl_image_tag @place.photos.fifth.key, class: "w-100 h-auto rounded my-3" %>
+      </aside>
+    </div>
+    <div class="col-12 col-md-7">
+      <section class="py-md-10">
+        <%= render 'reviews/new/header' %>
+        <%= render 'reviews/new/form' %>
+      </section>
+    </div>
+  </div>
+</section>

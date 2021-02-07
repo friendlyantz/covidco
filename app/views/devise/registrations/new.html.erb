@@ -1,0 +1,69 @@
+
+    <section>
+      <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center gx-0 min-vh-100">
+          <div class="col-12 col-md-6 col-lg-4 py-8 py-md-11">
+
+            <!-- Heading -->
+            <h6 class="mb-3 font-weight-bold text-uppercase text-primary">
+              Join the Community
+            </h6>
+            <h1 class="mb-3">
+              Let's save lives.
+            </h1>
+
+            <!-- Text -->
+            <p class="mb-6 text-muted lead">
+              Join thousands of Americans contributing to more conscious approach to COVID
+              in how they navigate their city.
+            </p>
+
+            <!-- Form -->
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
+
+              <div class="form-inputs">
+                <%= f.input :email,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "email" },
+                            class: "form-control",
+                            placeholder: "Email address",
+                            label: false %>
+                <%= f.input :password,
+                            required: true,
+                            input_html: { autocomplete: "new-password" },
+                            class: "form-control",
+                            placeholder: "Password",
+                            label: false %>
+                <%= f.input :password_confirmation,
+                            required: true,
+                            input_html: { autocomplete: "new-password" },
+                            class: "form-control",
+                            placeholder: "Password Confirmation",
+                            label: false %>
+              </div>
+
+              <div class="form-actions mb-5">
+                <%= f.button :submit, "Sign up", class: "btn btn-block btn-primary" %>
+              </div>
+            <% end %>
+
+            <!-- Text -->
+            <%= render "devise/shared/links" %>
+
+
+          </div>
+          <div class="col-lg-7 offset-lg-1 align-self-stretch d-none d-lg-block">
+
+            <!-- Image -->
+            <div class="h-100 w-cover bg-cover" style="background-image: url(https://images.pexels.com/photos/4546135/pexels-photo-4546135.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);"></div>
+
+            <!-- Shape -->
+            <div class="shape shape-left shape-fluid-y svg-shim text-white">
+              <svg viewBox="0 0 100 1544" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v386l-50 772v386H0V0z" fill="currentColor"/></svg>            </div>
+
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>

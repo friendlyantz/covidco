@@ -1,0 +1,44 @@
+<section class="pt-11 border-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <h3 class="">
+          <%= @place.name %>
+                    <%#= link_to place_bookmarks_path(@place), method: :create  do %>
+            <%# BOOKMARKING %>
+              <span data-place-id="<%= @place.id  %>" class="place-heart-icon">
+                <%= render 'places/heart', place: @place %>
+              </span>
+          <%# end %>
+          <!-- <span class="h6 font-weight-normal"><i class="fas fa-share text-black ml-1 mr-2"></i>Share</span> -->
+        </h3>
+        <h6>
+          <span class="ml-1">
+            <% @place.rating.to_i.times do  %>
+             <span class="fa fa-star text-warning"></span>
+             <% end %>
+             <%= @place.rating %>
+           </span> |
+          <span class="mx-1"><% @place.price.to_i.times do %>$<% end %></span>
+          <span class="mx-1"><%= @place.category %></span>
+        </h6>
+        <h6>
+          <span class="mr-2"><i class="fas fa-map-marker-alt mr-1"></i> <%= @place.address %> </span> |
+          <span class="mx-2"><i class="fas fa-phone-alt"></i> <%= link_to @place.phone, 'tel:#{@place.phone}' %></span> |
+          <span class="mx-2"><i class="fas fa-laptop"></i> <%= link_to "Website", @place.website %></span>
+        </h6>
+      </div>
+      <div class="col-4">
+        <div class=" rounded position-relative" style="height: 80px; width: 280px">
+          <!-- MAPBOX  -->
+          <div id="map"
+          class="rounded"
+            style="width: 100%; height: 100%;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

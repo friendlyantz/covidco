@@ -1,0 +1,44 @@
+<% @my_reviews.each do |review| %>
+  <div class="list-group-item">
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <div class="avatar avatar-xl">
+            <% if review.place.photos.present? %>
+              <%= cl_image_tag review.place.photos.first.key, class: "avatar-img rounded-circle" %>
+            <% else %>
+              <%= image_tag "https://i.pinimg.com/originals/12/bd/c6/12bdc6cc2db212489f4b485330fa232a.jpg", class: "avatar-img rounded-circle" %>
+            <% end %>
+        </div>
+      </div>
+      <div class="col ml-n5">
+        <h5 class="mb-1">
+          <%= link_to review.place.name, place_path(review.place)%>
+          <span class="ml-1 h6 text-muted">
+            <%= review.place.covid_score.nil? ? "No Reviews" : review.place.covid_score.round(1) %> |
+            <%= "$" * review.place.price.to_i %>
+          </span>
+        </h5>
+        <div class="card">
+          <p class="lead">
+            "<%= review.tip.truncate(100) %>"
+          </p>
+        </div>
+
+        <%#= cl_image_tag bookmark.place.photo.key, class: "card-img-top rounded-lg", alt: "..." %>
+      </div>
+      <div class="col-12 col-md-auto">
+        <div class="circle">
+          <%= review.covid_rating %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+<%#= image_tag "https://picsum.photos/200/30", class: "card-img-top rounded-lg", alt: "..." %>
+<%#= link_to review.place.name, place_path(review.place)%></h4>
+
+<%#= review.place.price %>
+<%#= link_to "Delete review", review_path(review), class: "px-3 rounded-pill btn btn-danger btn-sm", method: :delete %>

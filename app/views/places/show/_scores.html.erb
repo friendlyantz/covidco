@@ -1,0 +1,31 @@
+<% @total_reviews = @place.reviews.count %>
+
+<section class="mt-5 border-bottom card-style-7">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col">
+        <h3 class="mb-5">Local Risk Assessment from <%= h(@place.reviews.count) %> reviews </h3>
+      </div>
+      <div class="col text-right">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <h6>Overall Scores (average: <%= @place.covid_score %></h6>
+        <%= render 'places/show/scores/overall_rating' %>
+      </div>
+      <div class="col-5">
+        <h5 class="text-muted">Adhrerence to Preventative Measures</h5>
+        <%= render 'places/show/scores/preventative_measures' %>
+      </div>
+      <div class="col-4">
+        <h5 class="text-muted">Assessment of COVID Exposure</h5>
+        <%= render 'places/show/scores/exposure_assessment' %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%#= @place.covid_score.nil? ? "no reviews yet" : @place.covid_score %>

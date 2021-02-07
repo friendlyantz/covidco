@@ -1,0 +1,113 @@
+<div class="container pr-8">
+  <div class="review-form">
+    <%= simple_form_for [ @place, @review ] do |f| %>
+      <%#= f.input :content %>
+      <div class="">
+        <div class="row">
+          <div class="col-auto">
+            <%= f.input :covid_rating, :label => "What is your overall rating for this place?", collection: 1..10, as: :radio_buttons %>
+          </div>
+        </div>
+      </div>
+      <div class="pt-4 border-top">
+        <h5 class="mb-1">Adherence to Preventative Measures</h5>
+        <p class="text-muted mb-5">Example: "avoiding busy hours", "make a reservation"</p>
+        <div class="d-flex flex-row bd-highlight mb-3 text-center card-style-5">
+          <div class="pr-3 flex-fill">
+            <div class="toggle-radio">
+              <%= image_tag "https://cdn2.iconfinder.com/data/icons/coronavirus-115/50/corona_coronavirus_disease-45-512.png", class: "img-fluid" %>
+              <%= f.input :hand_sanitizer, :label => "Hand Sanitizer Available", collection: Review::OPTIONS_YES_NO, as: :radio_buttons %> <!-- use custom array like on this line OR use Review::OPTIONS(3Versions*) - see examples below -->
+            </div>
+          </div>
+          <div class="pr-3 flex-fill">
+            <div class="">
+              <%= image_tag "https://cdn1.iconfinder.com/data/icons/medical-items-and-supplies/64/surgical-mask-256.png", class: "img-fluid" %>
+              <%= f.input :face_mask, :label => "Face Mask Required", collection: Review::OPTIONS_YES_NO, as: :radio_buttons %>
+            </div>
+          </div>
+          <div class="pr-3 flex-fill">
+            <div class="">
+              <%= image_tag "https://cdn2.iconfinder.com/data/icons/virus-coronavirus-1/64/virus_Distance_keep_social_social_distancing_check_mark-256.png", class: "img-fluid" %>
+              <%= f.input :social_distancing, :label => "6ft Distancing Enforced", collection: Review::OPTIONS_YES_NO, as: :radio_buttons %>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row bd-highlight mb-3 text-center card-style-5">
+          <div class="pr-3 flex-fill">
+            <div class="">
+              <%= image_tag "https://cdn3.iconfinder.com/data/icons/internet-of-things-143/100/25._People_Tracking-256.png", class: "img-fluid" %>
+              <%= f.input :contact_tracing, :label => "Contact Tracing Program", collection: Review::OPTIONS_YES_NO, as: :radio_buttons %>
+            </div>
+          </div>
+          <div class="pr-3 flex-fill">
+            <div class="">
+              <%= image_tag "https://cdn2.iconfinder.com/data/icons/virus-coronavirus-1/64/virus_Body_temperature_check_scan_thermometer_infrared_thermometer-256.png", class: "img-fluid" %>
+              <%= f.input :temperature_checks, :label => "Temperature Checks", collection: Review::OPTIONS_YES_NO, as: :radio_buttons %>
+            </div>
+          </div>
+          <div class="pr-3 flex-fill">
+            <div class="">
+              <%= image_tag "https://cdn2.iconfinder.com/data/icons/coronavirus-covid-19-7/128/Diagnosis_coronavirus_covid-19_symstoms_information_checklist-256.png", class: "img-fluid" %>
+              <%= f.input :covid_protocols, :label => "COVID Protocols Posted", collection: Review::OPTIONS_YES_NO, as: :radio_buttons %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-top pt-4">
+        <h5 class="mb-1 font-weight-bold">Assessment of COVID Exposure</h5>
+        <p class="text-muted mb-5">Example: "avoiding busy hours", "make a reservation"</p>
+        <div class="my-4">
+          <!-- <span class="float-right font-weight-normal h6 text-small badge badge-warning inline-block">Somewhat Risky</span> -->
+          <%= f.input :exposure_risk, :label => "Precautions and COVID Risk Measures",  collection: Review::OPTIONS, as: :radio_buttons, class: "w-100" %>
+        </div>
+        <div class="my-4">
+          <!-- <span class="float-right font-weight-normal h6 text-small badge badge-success inline-block">Very Mindful</span> -->
+          <%= f.input :covid_consciousness, :label => "Mindfulness of Staff and Other Visitors", collection: Review::OPTIONS, as: :radio_buttons %>
+        </div>
+        <div class="my-4">
+          <!-- <span class="float-right font-weight-normal h6 text-small badge badge-info inline-block">Moderate</span> -->
+          <%= f.input :covid_enforcement, :label => "Enforcement of COVID Safety Measures", collection: Review::OPTIONS, as: :radio_buttons %>
+        </div>
+        <div class="my-4">
+          <!-- <span class="float-right font-weight-normal h6 text-small badge badge-info inline-block">Moderate</span> -->
+          <%= f.input :covid_creativity, :label => "Perceived Effort to Reduce COVID Risk", collection: Review::OPTIONS, as: :radio_buttons %>
+        </div>
+      </div>
+      <div class="border-top pt-4">
+        <h5 class="mb-1">Have a tip for other locals?</h5>
+        <p class="text-muted">Example: "avoiding busy hours", "make a reservation"</p>
+        <%= f.input :tip, as: :string, label: false, placeholder: "Recommendation or tip..." %>
+      </div>
+      <div class="border-top pt-4">
+        <%= f.submit "Leave Review", class: "float-right btn-sm btn-block btn btn-black" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+<%#= simple_form_for [ @place, @review ] do |f| %>
+<%#= f.input :content %>
+<%#= f.input :covid_rating, collection: 1..10%>
+<%#= f.input :tip, as: :string %>
+<%#= f.hint 'Short tip for guests' %>
+
+<%#= f.input :hand_sanitizer, collection: Review::OPTIONS, as: :radio_buttons %> <!-- use custom array like on this line OR use Review::OPTIONS(3Versions*) - see examples below -->
+<%#= f.input :face_mask, collection: Review::OPTIONS %>
+<%#= f.input :temperature_checks, collection: Review::OPTIONS_YES_NO, as: :radio_buttons %>
+<%#= f.input :social_distancing, collection: Review::OPTIONS, as: :radio_buttons %>
+<%#= f.input :contract_tracing, collection: Review::OPTIONS %>
+
+<%#= f.input :exposure_risk, collection: Review::OPTIONS %>
+<%#= f.input :covid_consciousness, collection: Review::OPTIONS %>
+<%#= f.input :covid_enforcement, collection: Review::OPTIONS %>
+<%#= f.input :covid_creativity, collection: Review::OPTIONS %>
+<%# ATTACHING PHOTO - Active Storage %>
+<%#= f.input :photos, as: :file, input_html: { multiple: true } %>
+
+<%#= f.hint 'Be cool! No special characters, please.' %>
+<%#= f.submit "Leave review", class: "btn btn-primary"%>
+<%# end %>

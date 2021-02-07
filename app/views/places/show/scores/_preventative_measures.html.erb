@@ -1,0 +1,80 @@
+<div class="my-5">
+  <div class="row">
+    <div class="col-6">
+      <div class="progress" style="height: 5px;">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where(hand_sanitizer: 1).count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div> <span style="font-size: 10px;"><%= h(percent) %>%</span>
+      <div class="card-style-6">
+        <%= image_tag "https://cdn3.iconfinder.com/data/icons/minimal-disease/256/minimal_disease_2-256.png", class: "img-fluid" %>
+        <span class="">
+          Hand Sanitizer Available
+        </span>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="progress" style="height: 5px;">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where(contact_tracing: 1).count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div> <span style="font-size: 10px;"><%= h(percent) %>%</span>
+      <div class="card-style-6">
+        <%= image_tag "https://cdn3.iconfinder.com/data/icons/internet-of-things-143/100/25._People_Tracking-256.png", class: "img-fluid" %>
+        <span class="">
+          Contact Tracing Program
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="progress" style="height: 5px;">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where(face_mask: 1).count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div><span style="font-size: 10px;"><%= h(percent) %>%</span>
+      <div class="card-style-6">
+        <%= image_tag "https://cdn1.iconfinder.com/data/icons/corona-virus-12/64/facemask-virus-covid19-corona-mask-512.png", class: "img-fluid" %>
+        <span class="">
+          Face Mask Required
+        </span>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="progress" style="height: 5px;">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where(temperature_checks: 1).count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div> <span style="font-size: 10px;"><%= h(percent) %>%</span>
+      <div class="card-style-6">
+        <%= image_tag "https://cdn2.iconfinder.com/data/icons/virus-coronavirus-1/64/virus_Body_temperature_check_scan_thermometer_infrared_thermometer-256.png", class: "img-fluid" %>
+        <span class="">
+          Temperature Checks Required
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="progress" style="height: 5px;">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where(social_distancing: 1).count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div> <span style="font-size: 10px;"><%= h(percent) %>%</span>
+      <div class="card-style-6">
+        <%= image_tag "https://cdn2.iconfinder.com/data/icons/virus-coronavirus-1/64/virus_Distance_keep_social_social_distancing_check_mark-256.png", class: "img-fluid" %>
+        <span class="">
+          6ft Social Distancing Enforced
+        </span>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="progress" style="height: 5px;">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where(covid_protocols: 1).count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div> <span style="font-size: 10px;"><%= h(percent) %>%</span>
+      <div class="card-style-6">
+        <%= image_tag "https://cdn2.iconfinder.com/data/icons/coronavirus-covid-19-7/128/Diagnosis_coronavirus_covid-19_symstoms_information_checklist-256.png", class: "img-fluid" %>
+        <span class="">
+          COVID Protocols Posted
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

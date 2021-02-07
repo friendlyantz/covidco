@@ -1,0 +1,412 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import 'mapbox-gl/dist/mapbox-gl';
+@import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
+@import 'select2/dist/css/select2';
+
+// Your CSS partials
+// @import "components/index";
+// @import "pages/index";
+
+@import "theme.bundle";
+@import "libs.bundle";
+
+
+@font-face {
+  font-family: 'HK Grotesk Pro';
+    src: url(font-path('HKGroteskPro/HKGroteskPro-Regular.otf'));
+    src: url(font-path('HKGroteskPro/HKGroteskPro-Regular.otf')) format('opentype'),
+         url(font-path('HKGroteskPro/HKGroteskPro-Regular.woff')) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+  // font-family: 'Roboto';
+  font-family: 'HK Grotesk Pro';
+}
+h4 {line-height: 1.2;}
+
+p {font-size: .75rem; line-height: 1rem;}
+p.lead {font-size: 1rem; line-height: 1.4rem;}
+.form-control {border: 1px solid #ddd;}
+.navbar {
+  padding: .2rem 0;
+  box-shadow: 1px 1px 1px #ccc;
+}
+
+// Reviews form
+fieldset {width: 100%;}
+.col-form-label  {
+  font-size: .75rem;
+  line-height: 1rem;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.bg-size-cover {
+  background-size: cover !important;
+}
+
+.text-muted {
+  color: #aaa !important;
+}
+
+.bg-black {
+  background: #000 !important;
+}
+
+a.text-reset {
+  color: #fff !important;
+  opacity: .6;
+}
+
+.circle {
+  border: 2px solid #000;
+  line-height: 60px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+
+// footer
+.btn {
+  font-weight: 400;
+}
+
+.btn.btn-xs {
+  font-size: .75rem;
+  padding: 3px 10px;
+  // padding: .25rem 1rem;
+}
+
+.btn-outline-secondary {
+    border-color: #bbb;
+    color: #333;
+}
+
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 1rem .5rem;
+}
+
+// NAVBAR
+.navbar-dark.fixed-top > .container:after {
+    border-top: none;
+}
+
+
+// card-style-4 FEATURED
+.card-style-4 .card {
+  min-width: 200px;
+}
+
+.card-row .card-body {
+    padding: .5rem;
+}
+
+.card-style-4 .card-title {
+  font-size: .9rem;
+  margin-bottom: 0;
+}
+
+.card-style-4 .card-place {
+  font-size: .65rem;
+  margin-bottom: 0;
+  color: #aaa;
+}
+
+.card-style-4 .card-rating {
+  font-size: .5rem;
+  margin-bottom: 3px;
+}
+
+
+
+
+// card-style-3 FEATURED
+.card-style-3 .card-score {
+  right: 10%;
+  top: 10%;
+  height: 50px;
+  width: 50px;
+  font-size: 18px;
+  line-height: 50px;
+}
+
+.card-style-3 .card-category {
+  font-size: .9rem;
+}
+
+// card-style-2 categories
+.card-style-2 .card {
+  min-width: 200px;
+  margin-bottom: 10px;
+}
+.card-style-2 .card-title {
+  font-weight: 400px;
+  font-size: .85rem;
+}
+
+// card-style-1 listings
+.card-style-1 .card {
+  min-width: 170px;
+  position: relative;
+}
+
+.card-score {
+  height: 40px;
+  width: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  position: absolute;
+  top:15px;
+  right: 10px;
+  background: rgba(0,0,0, .5);
+}
+
+.card-style-1 .card-meta {
+  padding: 0 .5rem .5rem;
+}
+.card-style-1 .card-title {
+    font-size: .75rem;
+    line-height: .85rem;
+    margin-bottom: 5px;
+}
+.card-style-1 .card-rating {
+  font-size: .65rem;
+  line-height: .85rem;
+  margin-bottom: 0;
+}
+
+
+// forms
+label {
+    font-size: .85rem;
+}
+
+
+
+// reviews
+
+.form-check {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.ratings-circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  display: inline-block;
+}
+
+
+// card-style-5 REVIEWS
+.card-style-5 p {
+  margin-top: 10px;
+}
+
+.card-style-5 img {
+  height: 50px;
+  width: auto;
+}
+
+// card-style-6 COVID SCORE ADHERENCE TO PREVENTATIVE MEASURES
+
+.card-style-6 img {
+  height: 40px;
+  float: left;
+  margin: 10px 15px 10px;
+}
+
+.card-style-6 span {
+  font-size: .6rem;
+  line-height: .85rem;
+  float: left;
+  display: inline-block;
+  width: 50px;
+  margin-top: 10px;
+  color: #888;
+}
+
+// card style 7 COVID Assessment
+.card-style-7 .card:first-of-type {
+  padding-top: 0
+}
+  .card-style-7 .card {
+  padding: 10px 0;
+}
+
+.card-style-7 p {
+  font-size:.7rem;
+  line-height: 1rem;
+  margin-bottom: 0;
+  color: #888;
+  // width: 90px;
+  // margin: 0 10px;
+}
+
+.card-style-7 span.badge {
+  font-size: .7rem;
+  font-weight: 400;
+  float: right;
+  padding: 7px 10px;
+  display: block;
+  width: 100%;
+}
+
+
+// select_2 container
+.select2-dropdown {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    left: -100000px;
+    width: 100%;
+    z-index: 1051;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #eee;
+    outline: 0;
+}
+
+// pill tags
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  display: inline-block;
+  padding: .5rem 1rem;
+  font-size: .8em;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .75rem;
+  background-color: rgba(80, 102, 144, 0.1);
+  color: #506690;
+  border: none;
+}
+
+// close "x"
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #999;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+// custom form styling
+
+.review-form .form-check inputs + input {
+  border-radius: 0;
+}
+
+.review-form .form-check-label {
+  padding: .3rem .8rem;
+  border-radius: 0px;
+}
+
+.review-form .form-group .form-check:first-of-type .form-check-label {
+  border-radius: 10px 0 0 10px;
+}
+
+.review-form .form-group .form-check:last-of-type .form-check-label {
+  border-radius: 0px 10px 10px 0;
+}
+
+.review-form .form-check {
+  // padding: 0;
+  display: inline-block;
+  min-height: 1.7rem;
+  padding-left: .95rem;
+  // margin-right: 0;
+}
+
+.review-form .form-check > input {
+}
+
+.review-form .form-check-input,
+.review-form .form-check input {
+  position: static !important;
+  position: static !important;
+}
+
+.review-form .form-check .form-check-input {
+    float: none;
+}
+
+.review-form .form-check-input.is-valid ~ .form-check-label, .was-validated .form-check-input:valid ~ .form-check-label {
+    color: #000;
+}
+
+.review-form .form-check input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.review-form .form-check-input + .form-check-label {
+  background: #eee;
+
+}
+.review-form .form-check-input:checked + .form-check-label {
+  background: #08c;
+  color: #fff;
+}
+
+//
+// .stars {
+//   position: relative;
+//   input {
+//     opacity: 0;
+//     position: absolute;
+//     height: 0;
+//     width: 0;
+//   }
+//   > div {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//   }
+//   label {
+//     .circle {
+//       width: 20px;
+//       height: 20px;
+//       border-radius: 50%;
+//       display: inline-block;
+//       border: 2px solid orange;
+//       background: transparent;
+//       transition: background 0.5s;
+//     }
+//   }
+//   .stars-radio:checked + label {
+//     .circle {
+//       background-color: orange;
+//     }
+//   }
+// }

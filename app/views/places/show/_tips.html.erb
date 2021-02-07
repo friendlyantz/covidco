@@ -1,0 +1,46 @@
+<section class="py-5 border-bottom">
+  <div class="container">
+    <h5 id="tips-for-community", class="mb-5">Tips from the Community</h5>
+    <div class="row no-gutters">
+
+      <% @place.reviews.each do |review| %>
+      <div id="review-<%= review.id %>", class="col-4 mb-3">
+        <div class="col-12">
+          <div class="card shadow-lg">
+            <a class="card-body p-5" href="#!">
+              <p class="mb-0 text-muted">
+                <%#= review.tip %>
+                <%= review.tip %>
+              </p>
+            </a>
+            <div class="row px-5 pb-3 align-items-center justify-content-between">
+              <div class="col-9">
+                <div class="avatar avatar-sm mr-2">
+                  <%= image_tag "https://avatars.githubusercontent.com/#{review.user.last_name}", class: "avatar-img rounded-circle" %>
+                </div>
+                <span class="h6 inline text-muted mr-2 mb-0">
+                  <%= review.user.first_name %> <%= review.user.last_name %>
+                </span>
+              </div>
+
+              <div class="col-auto text-right pr-4">
+                <% if current_user && review.votes.where(user: current_user).first.nil? %>
+                  <%= link_to review_votes_path(review), method: :post, remote: true do %>
+                    <i class="far fa-thumbs-up"></i> <%= review.votes.count %>
+                  <% end %>
+                <% else %>
+                  <%= link_to review_votes_path(review), remote: true do %>
+                    <%= link_to review_vote_path(review.votes.where(user: current_user).first), method: :delete, remote: true do %>
+                      <i class="fas fa-thumbs-up"></i> <%= review.votes.count %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>

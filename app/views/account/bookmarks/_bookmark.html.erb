@@ -1,0 +1,38 @@
+<% @my_bookmarks.each do |bookmark| %>
+  <div class="list-group-item">
+    <div class="row align-items-center">
+
+      <!-- photos -->
+      <div class="col-auto">
+        <div class="avatar avatar-xl">
+            <% if bookmark.place.photos.present? %>
+              <%= cl_image_tag bookmark.place.photos.first.key, class: "avatar-img rounded-circle" %>
+            <% else %>
+              <%= image_tag "https://i.pinimg.com/originals/12/bd/c6/12bdc6cc2db212489f4b485330fa232a.jpg", class: "avatar-img rounded-circle" %>
+            <% end %>
+
+        </div>
+      </div>
+
+      <div class="col ml-n5">
+        <h4 class="mb-0">
+          <%= link_to bookmark.place.name, place_path(bookmark.place)%>
+        </h4>
+        <h6 class="text-muted">
+          <%= bookmark.place.covid_score.nil? ? "No reviews" : bookmark.place.covid_score.round(1) %> |
+
+          <%= "$" * bookmark.place.price.to_i %>
+        </h6>
+        <p class="lead text-gray-700">
+          <%= bookmark.place.description.truncate(100) %>
+        </p>
+        <%#= cl_image_tag bookmark.place.photo.key, class: "card-img-top rounded-lg", alt: "..." %>
+      </div>
+      <div class="col-12 col-md-auto">
+        <%= link_to account_bookmark_path(bookmark), class: "btn btn-xs btn-block btn-danger mt-5 mt-md-0", method: :delete do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

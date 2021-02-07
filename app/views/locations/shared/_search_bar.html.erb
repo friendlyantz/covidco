@@ -1,0 +1,14 @@
+<%= form_tag search_locations_path, class: "rounded shadow mb-4", method: :get do %>
+  <div class="input-group input-group-lg">
+    <span class="input-group-text border-0 pr-1">
+      <i class="fe fe-search"></i>
+    </span>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control border-0 px-1",
+          placeholder: "Keywords, places, activities"
+      %>
+      <span class="input-group-text border-0 py-0 pl-1 pr-3">
+      </span>
+  </div>
+<% end %>

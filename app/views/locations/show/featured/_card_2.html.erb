@@ -1,0 +1,42 @@
+<% activities = Place.tagged_with(["Landmarks"], :any => true).where(location_id: @location.id) %>
+<% activities.take(1).each do |place| %>
+  <div class="col-12 col-md-6 d-flex">
+
+
+
+    <div class="card pt-14 bg-cover overlay overlay-primary overlay-80 text-white shadow-light-lg mb-6" style="background-image: url(<%= cl_image_path place.photos.first.key, class: "img-fluid" %>);">
+      <span class="badge rounded-pill bg-light badge-float badge-float-inside">
+        <span class="h6 text-uppercase">Featured</span>
+      </span>
+      <div class="position-absolute text-white bg-black btn-pill btn-small h6 px-3" style="z-index: 9999; top: 15px; left: 20px;">
+        <%= place.category %>
+      </div>
+      <a class="card-body mt-auto" href="#!">
+        <h3 class="mt-auto mb-1">
+          <%= place.name %>
+        </h3>
+        <h6 class="mt-0">
+          <% place.rating.to_i.times do  %>
+             <span class="fa fa-star text-warning"></span>
+          <% end %>
+          <%= place.rating %>
+        </h6>
+        <p class="mb-0 text-white-80">
+          <%= place.description %>
+        </p>
+      </a>
+      <a class="card-meta" href="#!">
+        <hr class="card-meta-divider bg-white-20">
+        <div class="avatar avatar-sm mr-2">
+          <img src="assets/img/avatars/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
+        </div>
+        <h6 class="text-uppercase text-white-80 mr-2 mb-0">
+          Adolfo Hess
+        </h6>
+        <p class="h6 text-uppercase text-white-80 mb-0 ml-auto">
+          <time datetime="2019-05-02">May 02</time>
+        </p>
+      </a>
+    </div>
+  </div>
+<% end %>

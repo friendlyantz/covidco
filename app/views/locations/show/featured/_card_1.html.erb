@@ -1,0 +1,41 @@
+<% activities = Place.tagged_with(["Wellness", "culture"], :any => true).where(location_id: @location.id) %>
+<% activities.take(2).each do |place| %>
+  <div class="col-12 col-md-6 d-flex">
+    <div class="card mb-6 mb-lg-0 shadow-light-lg">
+      <div class="col-12">
+
+        <!-- Badge -->
+        <span class="badge rounded-pill bg-success badge-float badge-float-outside">
+          <span class="h6 text-uppercase">Featured</span>
+        </span>
+
+      </div>
+      <a class="card-img-top py-12 bg-size-cover" href="#!" style="background: url(<%= cl_image_path place.photos.first.key %>);"></a>
+      <div class="position-absolute text-white bg-black btn-pill btn-small h6 px-3" style="z-index: 9999; top: 15px; left: 20px;">
+        <%= place.category %>
+      </div>
+      <div class="card-score">
+        <%= place.covid_score %>
+      </div>
+      <div class="position-relative">
+        <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
+          <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>                </div>
+      </div>
+      <a class="card-body" href="#!">
+
+        <h3 class="mt-auto mb-1">
+          <%= place.name %>
+        </h3>
+        <h6 class="mt-0">
+          <% place.rating.to_i.times do  %>
+             <span class="fa fa-star text-warning"></span>
+          <% end %>
+          <%= place.rating %>
+        </h6>
+        <p class="mb-0 text-muted">
+          <%= place.description.truncate(200) %>
+        </p>
+      </a>
+    </div>
+  </div>
+<% end %>

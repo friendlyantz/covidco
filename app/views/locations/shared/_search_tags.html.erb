@@ -1,0 +1,23 @@
+<%= form_tag search_locations_path, method: :get do %>
+
+  <!-- Badges -->
+  <div class="row flex-box align-items-center justify-content-between">
+    <div class="col-2">
+      <h6 class="font-weight-bold text-uppercase text-muted mb-0">
+        Search Tags:
+      </h6>
+
+    </div>
+    <div class="col-8">
+      <%= select_tag :tags,
+          options_for_select(ActsAsTaggableOn::Tag.all.collect{ |tag| [tag.name] }, params[:tags]).html_safe,
+          multiple: true,
+          class: "select2"
+      %>
+    </div>
+    <div class="col-2">
+      <%= submit_tag "Search", class: "btn btn-sm btn-black btn-sm" %>
+    </div>
+  </div> <!-- / .row -->
+
+<% end %>

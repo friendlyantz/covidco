@@ -1,0 +1,35 @@
+<section class="py-8 pb-12 border-bottom">
+  <div class="container">
+    <h5 class="text-center">Related Places</h5>
+    <div class="row mt-6">
+      <% @related_places.take(4).each do |place| %>
+
+        <div class="col-4 col-md-3 product">
+          <a class="card  shadow-light-lg pt-12 bg-size-cover" href="#!" style="background: url(<%= cl_image_path place.photos.first.key %>);"></a>
+            <div class="position-absolute text-white bg-black btn-pill btn-small h6 px-3" style="z-index: 9999; top: 15px; left: 30px;">
+              <%= place.category %>
+            </div>
+            <div class="card-score" style="bottom: 10 !important; right: 30px;">
+              <%= place.covid_score %>
+            </div>
+
+
+            <div class="card-body px-4 py-3">
+              <div class="shape shape-bottom-100 shape-fluid-x svg-shim text-white">
+                <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
+              </div>
+              <!-- <h6 class="text-uppercase mb-1 text-muted"></h6> -->
+              <p class="lead mb-0"><%= place.name %></p>
+              <h6 class="mb-0">
+                <% place.rating.to_i.times do  %>
+                   <span class="fa fa-star text-warning"></span>
+                <% end %>
+                <%= place.rating %>
+              </h6>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

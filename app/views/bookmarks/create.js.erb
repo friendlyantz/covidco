@@ -1,0 +1,2 @@
+var favoritePlaceHeart = document.querySelector('.place-heart-icon[data-place-id="<%= @place.id %>"]');
+favoritePlaceHeart.innerHTML = '<%= j render "places/heart", place: @place %>'

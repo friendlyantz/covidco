@@ -1,0 +1,213 @@
+<%= render 'account/shared/header' %>
+<section class="pb-8 pb-md-11 mt-md-n6">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-12 col-md-3">
+        <%= render 'account/users/navigation' %>
+      </div>
+          <div class="col-12 col-md-9">
+
+            <!-- Card -->
+            <div class="card card-bleed shadow-light-lg mb-6">
+              <div class="card-header">
+
+                <!-- Heading -->
+                <h4 class="mb-0">
+                  Basic Information
+                </h4>
+
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label" for="name">Name</label>
+                      <input class="form-control" id="name" type="text" placeholder="Amani Anai">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label" for="email">Email</label>
+                      <input class="form-control" id="email" type="email" placeholder="name@address.com">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label" for="email"><i class="fas fa-map-marker-alt mr-2"></i> City</label>
+                      <input class="form-control" id="location" type="email" placeholder="Austin, TX">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-label">Bio</label>
+                      <textarea name="name" placeholder="California transplant that has called Austin home for the last 6 years. Happily living here with my partner, and doing my best to stay safe, active, and sane. Open to recommendations and happy to connect." class="form-control" rows="8" cols="80"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <button class="btn btn-sm btn-block btn-primary" type="submit">
+                      Save changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div class="card card-bleed shadow-light-lg mb-6">
+              <div class="card-header">
+                <h4 class="mb-0">
+                  Your media
+                </h4>
+
+              </div>
+              <div class="card-body">
+                <div class="list-group list-group-flush">
+                  <div class="list-group-item">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+
+                        <!-- Avatar -->
+                        <div class="avatar avatar-xl">
+                          <%= image_tag "https://avatars.githubusercontent.com/#{current_user.last_name}", class: "avatar-img rounded-circle" %>
+                        </div>
+
+                      </div>
+                      <div class="col ml-n5">
+
+                        <!-- Heading -->
+                        <p class="mb-0">
+                          Your avatar
+                        </p>
+
+                        <!-- Text -->
+                        <small class="text-gray-700">
+                          PNG or JPG no larger than 1000px
+                        </small>
+
+
+                      </div>
+                      <div class="col-12 col-md-auto">
+
+                        <!-- Button -->
+                        <button class="btn btn-xs btn-block btn-primary mt-5 mt-md-0">
+                          Upload
+                        </button>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-group-item">
+
+                    <!-- Heading -->
+                    <p class="mb-0">
+                      Profile cover
+                    </p>
+
+                    <!-- Text -->
+                    <p class="small text-gray-700">
+                      PNG or JPG at 16:9 ratio no larger than 2MB
+                    </p>
+
+                    <!-- Dropzone -->
+                    <div class="dropzone dropzone-single" data-dropzone='{"url": "https://", "maxFiles": 1, "acceptedFiles": "image/*"}'>
+
+                      <!-- Fallback -->
+                      <div class="fallback">
+                        <div class="custom-file">
+                          <input class="custom-file-input" id="projectCoverUploads" type="file">
+                          <label class="custom-file-label" for="projectCoverUploads">Choose file</label>
+                        </div>
+                      </div>
+
+                      <!-- Preview -->
+                      <div class="dz-preview dz-preview-single">
+                        <div class="dz-preview-cover">
+                          <img class="dz-preview-img" data-dz-thumbnail src="data:image/svg+xml,%3csvg3c/svg%3e" alt="...">
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div class="card card-bleed shadow-light-lg mb-8">
+              <div class="card-header">
+
+                <!-- Title -->
+                <h4 class="mb-0">
+                  Privacy
+                </h4>
+
+              </div>
+              <div class="card-body">
+
+                <!-- List group -->
+                <div class="list-group list-group-flush">
+                  <div class="list-group-item">
+                    <div class="row align-items-center">
+                      <div class="col">
+
+                        <!-- Heading -->
+                        <p class="mb-0">
+                          Public Profile
+                        </p>
+
+                        <!-- Text -->
+                        <small class="text-gray-700">
+                          Making your profile public means anyone can see your information.
+                        </small>
+
+                      </div>
+                      <div class="col-auto">
+
+                        <!-- Switch -->
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="switchOne" checked>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-group-item">
+                    <div class="row align-items-center">
+                      <div class="col">
+
+                        <!-- Heading -->
+                        <p class="mb-0">
+                          Expose your email
+                        </p>
+
+                        <!-- Text -->
+                        <small class="text-gray-700">
+                          This lets users find you by your email address.
+                        </small>
+
+                      </div>
+                      <div class="col-auto">
+
+                        <!-- Switch -->
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="switchTwo" checked>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+
+
+
+<%#= @my_details.email %>

@@ -1,0 +1,8 @@
+<h6><%= link_to place.name, place_path(place) %> (<%= place.covid_score.nil? ? "no rating" : place.covid_score.round(1) %>) </h6>
+<% if !place.business_hours.nil? %>
+    <% JSON.parse(place.business_hours).each do |hours| %> 
+        <div align="left" style="font-size:9px">
+            <%= hours %>
+        </div>
+    <% end %>
+<% end %>

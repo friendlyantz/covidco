@@ -1,0 +1,48 @@
+<section class="pt-0 pt-md-0 mb-8">
+  <div class="container">
+    <h5 class="mb-4">Recommended Restaurants</h5>
+    <div class="row">
+      <% @places.take(4).each do |place| %>
+        <div class="col-12 col-md-6 col-lg-3 d-flex">
+          <div class="card mb-6 mb-lg-0 shadow-light-lg">
+            <a class="card-img-top py-9 bg-size-cover" href="#!" style="background: url(<%= cl_image_path place.photos.first.key %>);"></a>
+            <div class="position-absolute text-white bg-black btn-pill btn-small h6 px-3" style="z-index: 9999; top: 15px; left: 20px;">
+              <%= place.category %>
+            </div>
+            <div class="card-score">
+              <%= place.covid_score %>
+            </div>
+            <div class="position-relative">
+              <div class="shape shape-fluid-x shape-bottom svg-shim text-white">
+                <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>                </div>
+            </div>
+            <a class="card-body p-4 pt-3" href="#!">
+              <h5 class="mb-0 small"><%= place.name %></h5>
+              <h6 class="mt-0">
+                <% place.rating.to_i.times do  %>
+                   <span class="fa fa-star text-warning"></span>
+                <% end %>
+                <%= place.rating %>
+              </h6>
+              <p class="mb-0 text-muted">
+                <%= place.description.truncate(55) %>
+              </p>
+            </a>
+            <!-- <a class="card-meta" href="#!">
+              <hr class="card-meta-divider">
+              <div class="avatar avatar-sm mr-2">
+                <img src="assets/img/avatars/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
+              </div>
+              <h6 class="text-uppercase text-muted mr-2 mb-0">
+                Adolfo Hess
+              </h6>
+              <p class="h6 text-uppercase text-muted mb-0 ml-auto">
+                <time datetime="2019-05-02">May 02</time>
+              </p>
+            </a> -->
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

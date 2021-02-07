@@ -1,0 +1,67 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-sm fixed-top navbar-expand-lg bg-white">
+  <div class="container">
+
+    <!-- Brand -->
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "https://cdn2.iconfinder.com/data/icons/virus-14/512/covid-19_coronavirus_bacteria_virus_location_pin_placeholder-256.png", class: "navbar-brand-img" %>
+    <% end %>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse float-right" id="navbarCollapse">
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fe fe-x"></i>
+      </button>
+
+      <!-- Navigation -->
+    </div>
+
+    <!-- Button -->
+    <% if user_signed_in? %>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <a href="#" class="avatar dropdown-toggle" data-toggle="dropdown" >
+            <%= image_tag "https://avatars.githubusercontent.com/#{current_user.last_name}", class: "avatar-img rounded-circle" %>
+          </a>
+          <li class="nav-item dropdown mt-2">
+            <ul class="dropdown-menu" aria-labelledby="navbarAccount">
+              <li class="dropdown-item">
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "" %>
+              </li>
+              <li class="dropdown-item">
+                <%= link_to "Explore #{current_user.location.city} Map", locations_map_path, class: "dropdown-item" %>
+              </li>
+              </li>
+              <%# <li class="dropdown-item"> %>
+                <%#= link_to "Explore Global Map", places_map_path, class: "dropdown-item" %>
+              <%# </li> %>
+              </li>
+              <li class="dropdown-item">
+                <%= link_to "My Profile", account_users_path, class: "dropdown-item" %>
+              </li>
+              <li class="dropdown-item">
+                <%= link_to "My Bookmarks", account_bookmarks_path, class: "dropdown-item" %>
+              </li>
+              <li class="dropdown-item">
+                <%= link_to "My Reviews", account_reviews_path, class: "dropdown-item" %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    <% else %>
+      <div class="col-auto float-right">
+        <%= link_to "Login", new_user_session_path, class: "btn btn-black btn-xs pr-2" %>
+        <%= link_to "Join the Movement", new_user_registration_path, class: "btn btn-black btn-xs" %>
+      </div>
+    <% end %>
+
+  </div>
+</nav>

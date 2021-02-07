@@ -1,0 +1,11 @@
+<% if current_user && review.votes.where(user: current_user).first.nil? %>
+  <%= link_to review_votes_path(review), method: :post, remote: true do %>
+    <i class="far fa-thumbs-up"></i> <%= review.votes.count %>
+  <% end %>
+<% else %>
+  <%= link_to review_votes_path(review), remote: true do %>
+    <%= link_to review_vote_path(review.votes.where(user: current_user).first), method: :delete, remote: true do %>
+      <i class="fas fa-thumbs-up"></i> <%= review.votes.count %>
+    <% end %>
+  <% end %>
+<% end %>

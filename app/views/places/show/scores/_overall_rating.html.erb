@@ -1,0 +1,71 @@
+<!-- <span class="ratings-circle"></span>
+<span class="ratings-circle"></span>
+<span class="ratings-circle"></span>
+<span class="ratings-circle"></span>
+<span class="ratings-circle"></span>
+<span class="ratings-circle"></span>
+<span class="ratings-circle"></span>
+<span class="ratings-circle"></span>
+<span class="ratings-circle"></span>
+<span class="ratings-circle"></span> -->
+<div class="my-5 mt-0">
+  <div class="covid-score text-center" style="border: 2px solid #000; height: 50px; line-height: 50px; width: 50px; border-radius: 100%; font-size: 22px; text-align: center;">
+    <%= @place.covid_score %>
+  </div>
+  <hr class="mt-2"/>
+  <div class="d-flex flex-row justify-content-between">
+    <div class="">
+      <h6>Excellent</h6>
+    </div>
+    <div class="col-8">
+      <div class="progress mb-3">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where("covid_rating >= 8").count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar bg-black" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-between">
+    <div class="">
+      <h6>Very Good</h6>
+    </div>
+    <div class="col-8">
+      <div class="progress mb-3">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where("covid_rating >= 6 and covid_rating < 8").count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar bg-black" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-between">
+    <div class="">
+      <h6>Average</h6>
+    </div>
+    <div class="col-8">
+      <div class="progress mb-3">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where("covid_rating >= 4 and covid_rating < 6").count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar bg-black" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-between">
+    <div class="">
+      <h6>Poor</h6>
+    </div>
+    <div class="col-8">
+      <div class="progress mb-3">
+      <% @total_reviews > 0 ? percent = (@place.reviews.where("covid_rating >= 2 and covid_rating < 4").count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar bg-black" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-between">
+    <div class="">
+      <h6>Terrible</h6>
+    </div>
+    <div class="col-8">
+      <div class="progress mb-3">
+        <% @total_reviews > 0 ? percent = (@place.reviews.where("covid_rating < 2").count.fdiv(@total_reviews) * 100).round(2) : percent = 0  %>
+        <div class="progress-bar bg-black" role="progressbar" style="width: <%= h(percent) %>%" aria-valuenow="<%= h(percent) %>0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+</div>

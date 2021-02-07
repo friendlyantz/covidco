@@ -1,0 +1,37 @@
+<section class="border-bottom py-5 pb-10">
+  <div class="container">
+    <h4 class="mb-5">Community Reviews</h4>
+    <div class="list-group list-group-flush">
+      <% @place.reviews.each_with_index do |review, index| %>
+        <div class="list-group-item d-flex align-items-center">
+          <div class="row align-items-center">
+            <div class="col-3">
+              <%= image_tag "https://avatars.githubusercontent.com/#{review.user.last_name}", class: "avatar avatar-lg  avatar-img rounded-circle float-left mr-3" %>
+              <h5 class="font-weight-bold mb-1">
+                <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %>
+              </h5>
+              <p class="lead text-muted"><%= review.user.location.city %>, <%= review.user.location.state %></p>
+            </div>
+            <div class="col-4 text-left">
+              <h5>"<%= review.tip %>""</h5>
+
+            </div>
+            <div class="col-4 flaot-right">
+              <div class="covid-score text-center" style="border: 2px solid #000; height: 50px; width: 50px; border-radius: 100%; font-size: 30px; text-align: center;">
+                <%= review.covid_rating %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%#= review.tip %>
+<%#= review.votes.count %>
+<%#= link_to "Upvote", review_votes_path(review), method: :create  %>
+
+<%#= link_to "clear vote", review_vote_path(review), method: :delete  %>
+
+<%#= review.covid_rating %> <%#= @place.covid_score.nil? ? "no reviews yet" : @place.covid_score %>
