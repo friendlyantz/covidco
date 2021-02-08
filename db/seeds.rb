@@ -81,7 +81,7 @@ puts "==> Done. Now we have #{Location.all.count} location(s)"
 puts "..................."
 puts "Creating users..."
 # TEST USERS
-User.create(email: "test@test.com", password: "password", first_name: "Testosteron", last_name: "Testovich", location: Location.second )
+User.create(email: "test@test.com", password: "password", first_name: "Testosteron", last_name: "Testovich", location: Location.first )
 puts "test login user created: test@test.com, password: 'password' - his name is Testosteron Testovich :)"
 # TEST TEAM
 test_team = [ ['Amani', 'amanianai'], ['Rachel', 'rycmak'], ['Anton', 'friendlyantz'], ['Jody', 'JodyVanden'], ['Caio', 'caioertai'], ['Sheila', 'sheesh19'], ['Sy', 'syrashid'], ]
