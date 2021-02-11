@@ -10,6 +10,7 @@ write a COVID-safety review of the place and give it multiple scores, to be furt
 
 ## Screenshots
 ## Venue
+* photos, address, open hours, other data pulled via Google API during seeding
 ![venue](https://i.ibb.co/6JVNHW2/covidco-scr3.png)
 ![venue](https://i.ibb.co/Dr3thBX/covidco-scr4.png)
 
