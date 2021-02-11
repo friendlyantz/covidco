@@ -8,6 +8,15 @@ write a COVID-safety review of the place and give it multiple scores, to be furt
 *timeframe: 2 weeks 
 *team: 3 students
 
+## Screenshots
+## Venue
+![venue](https://i.ibb.co/6JVNHW2/covidco-scr3.png)
+![venue](https://i.ibb.co/Dr3thBX/covidco-scr4.png)
+
+## Review
+![](https://i.ibb.co/rvbHb5r/covidco-scr1.png)
+![](https://i.ibb.co/KDpYYz5/covidco-scr2.png)
+
 ## DB: Postgres
 ![db](https://i.ibb.co/0JTjDhJ/covidco.png)
 
