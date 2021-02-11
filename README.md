@@ -9,5 +9,5 @@ write a COVID-safety review of the place and give it multiple scores, to be furt
 made within 2weeks in a team of 3 students.
 
 ## DB: Postgres
+![db](https://i.ibb.co/0JTjDhJ/covidco.png)
 
-<a href="https://ibb.co/s3nvmy3"><img src="https://i.ibb.co/0JTjDhJ/covidco.png" alt="covidco" border="0"></a>
